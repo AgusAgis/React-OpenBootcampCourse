@@ -3,10 +3,10 @@ import './App.css';
 //import GreetingStyled from './components/pure/greetingStyled';
 //import Greeting from './components/pure/greeting';
 //import GreetingF from './components/pure/greetingF';
-//import TaskListComponent from './components/container/task_list';
+import TaskListComponent from './components/container/task_list';
 //import ContactComponentB from './components/container/BComponent';
 //import Contacto from './models/contact.class';
-import ClockF from './components/container/tarea2';
+//import ClockF from './components/container/tarea2';
 
 function App() {
   // const contact = new Contacto('Alex', 'Perez', 'aperez@gmail.com');
@@ -14,15 +14,14 @@ function App() {
   // const contact2 = new Contacto('Rosa', 'Meltros...', 'rosa@meltro.so');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <TaskListComponent></TaskListComponent> */}
+      {/* <header className="App-header"> */}
         {/* <GreetingStyled name="Agustin"></GreetingStyled> */}
-       {/* <ContactComponentB contact={contact}></ContactComponentB>
-       <ContactComponentB contact={contact1}></ContactComponentB>
-       <ContactComponentB contact={contact2}></ContactComponentB> */}
-       <ClockF></ClockF>
-      </header>
+        {/* <ContactComponentB contact={contact}></ContactComponentB>
+        <ContactComponentB contact={contact1}></ContactComponentB>
+        <ContactComponentB contact={contact2}></ContactComponentB> */}
+        {/* <ClockF></ClockF> */}
+      {/* </header> */}
+       <TaskListComponent></TaskListComponent>
     </div>
   );
 }
