@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Task from '../../models/task.class'
+import { LEVELS } from '../../models/levels.enum'
 import "../../styles/task.scss"
 
 function TaskComponent({ task }) {
@@ -13,6 +14,39 @@ function TaskComponent({ task }) {
         }
     }, [task])
 
+    function taskLevelBadge(){
+        switch (task.level) {
+            case LEVELS.NORMAL:
+                return(
+                    <h6 className="mb-0">
+                        <span className='badge bg-primary'>
+                            {task.level}
+                        </span>
+                    </h6>
+                )
+                case LEVELS.URGENTE:
+                    return(
+                        <h6 className="mb-0">
+                            <span className='badge bg-warning'>
+                                {task.level}
+                            </span>
+                        </h6>
+                    )
+                    case LEVELS.BLOCKING:
+                        return(
+                            <h6 className="mb-0">
+                                <span className='badge bg-danger'>
+                                    {task.level}
+                                </span>
+                            </h6>
+                        )
+        
+            default:
+                break;
+        }
+    }
+
+    
   return (
         <tr className='fw-normal'>
             <th>
@@ -22,12 +56,15 @@ function TaskComponent({ task }) {
                 <span>{ task.description }</span>
             </td>
             <td className='align-middle'>
-                {/* TODO: Sustituir por badge */}
-                <span>{ task.level }</span>
+                {taskLevelBadge()}
             </td>
             <td className='align-middle'>
-                 {/* TODO: Sustituir por iconos */}
-            <span>{ task.completed }</span>
+                
+            { task.completed ? 
+            <i className='bi-toggle-on' style={{color:"green"}}></i> : 
+            <i className='bi-toggle-off'style={{color:"grey"}}></i>
+            }
+            <i className='bi-trash' style={{color:"tomato"}}></i>
             </td>
         </tr>
 
