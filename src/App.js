@@ -4,6 +4,7 @@ import './App.css';
 //import Greeting from './components/pure/greeting';
 //import GreetingF from './components/pure/greetingF';
 import TaskListComponent from './components/container/task_list';
+//import Father from './components/container/father';
 //import ContactComponentB from './components/container/BComponent';
 //import Contacto from './models/contact.class';
 //import ClockF from './components/container/tarea2';
@@ -22,6 +23,7 @@ function App() {
         {/* <ClockF></ClockF> */}
       {/* </header> */}
        <TaskListComponent></TaskListComponent>
+       {/* <Father></Father> */}
     </div>
   );
 }

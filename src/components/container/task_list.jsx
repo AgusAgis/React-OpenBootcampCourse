@@ -13,6 +13,8 @@ const TaskListComponent = () => {
 
     //Estado del componente
     const [tasks, setTask] = useState([defaultTask1, defaultTask2, defaultTask3])
+   
+   
     const [loading, setLoading] = useState(true)
     //Control del ciclo de vida del componente
 
@@ -24,8 +26,30 @@ const TaskListComponent = () => {
         }
     },[tasks])
   
-    const changeCompleted = (id) =>{
-      console.log('TODO: Cambiar estado de una tarea')
+    function completeTask(task){
+      console.log("Complete this task:", task);
+      const index = tasks.indexOf(task);
+      const tempTask = [...tasks]
+      tempTask[index].completed = !tempTask[index].completed
+      //we update the state of the component and it willl update the iteration of the tasks in order to show the task updated//
+     setTask(tempTask)
+    }
+
+    function deleteTask(task){
+      console.log("Delete this task:", task);
+      const index = tasks.indexOf(task);
+      const tempTask = [...tasks];
+      tempTask.splice(index,1);
+      setTask(tempTask)
+
+    }
+
+    function addTask2(task){
+      console.log("Delete this task:", task);
+      const index = tasks.indexOf(task);
+      const tempTask = [...tasks];
+      tempTask.push(task)
+      setTask(tempTask)
     }
 
     return (
@@ -52,7 +76,9 @@ const TaskListComponent = () => {
                     return(
                       <TaskComponent
                        key={index}
-                       task={task}>
+                       task={task}
+                       complete={completeTask}
+                       remove = {deleteTask}>
                       </TaskComponent>
                     )
                   }
@@ -60,12 +86,12 @@ const TaskListComponent = () => {
                 </tbody>
               </table>
             </div>
-            <TaskForm></TaskForm>
           </div>
 
          
         </div>
              
+            <TaskForm add={addTask2}></TaskForm>
     </div>
   )
 }
